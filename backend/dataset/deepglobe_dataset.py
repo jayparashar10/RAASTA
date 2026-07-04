@@ -34,6 +34,8 @@ class DeepGlobeDataset(Dataset):
 
         # Read mask
         mask = cv2.imread(str(mask_path), cv2.IMREAD_GRAYSCALE)
+        mask = (mask > 127).astype("float32")
+
 
         # Apply augmentations (later)
         if self.transform:
